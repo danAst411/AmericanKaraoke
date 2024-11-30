@@ -1,0 +1,136 @@
+<div class="container d-flex flex-column vh-100">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <!-- Card Principal -->
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <!-- Navegación entre Login, Registro y Recuperación -->
+                    <ul class="nav nav-pills mb-3 justify-content-center" id="authTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Iniciar Sesión</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Registrarse</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="recover-tab" data-bs-toggle="tab" data-bs-target="#recover" type="button" role="tab">Recuperar Contraseña</button>
+                        </li>
+                    </ul>
+
+                    <!-- Contenido de los Tabs -->
+                    <div class="tab-content">
+                        <!-- Login -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                            <div class="text-center mb-4">
+                                <h1 class="h2">¡Bienvenido de nuevo!</h1>
+                                <p class="text-muted">Inicia sesión para continuar</p>
+                            </div>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Correo Electrónico</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" placeholder="Introduce tu correo" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Contraseña</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                        <input type="password" class="form-control" id="loginPassword" placeholder="Introduce tu contraseña" required>
+                                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('loginPassword')">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                    <small><a href="#recover" data-bs-toggle="tab">¿Olvidaste tu contraseña?</a></small>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                            </form>
+                        </div>
+
+                        <!-- Registro -->
+                        <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                            <div class="text-center mb-4">
+                                <h1 class="h2">Crea tu cuenta</h1>
+                                <p class="text-muted">Únete para disfrutar de American Karaoke</p>
+                            </div>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" placeholder="Introduce tu nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" placeholder="Introduce tu apellido" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" placeholder="Introduce tu número" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" placeholder="Introduce tu correo" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">País</label>
+                                    <select class="form-select">
+                                        <option value="mx">México</option>
+                                        <option value="us">Estados Unidos</option>
+                                        <option value="es">España</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Contraseña</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                        <input type="password" class="form-control" id="registerPassword" placeholder="Crea una contraseña" required>
+                                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('registerPassword')">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Confirmar Contraseña</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirma tu contraseña" required>
+                                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirmPassword')">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">Registrarse</button>
+                            </form>
+                        </div>
+
+                        <!-- Recuperación de Contraseña -->
+                        <div class="tab-pane fade" id="recover" role="tabpanel" aria-labelledby="recover-tab">
+                            <div class="text-center mb-4">
+                                <h1 class="h2">Recuperar Contraseña</h1>
+                                <p class="text-muted">Te enviaremos un correo para restablecerla</p>
+                            </div>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Correo Electrónico</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" placeholder="Introduce tu correo" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-warning w-100">Enviar Instrucciones</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function togglePassword(inputId) {
+        const input = document.getElementById(inputId);
+        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+        input.setAttribute('type', type);
+    }
+</script>
